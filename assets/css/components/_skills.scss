@@ -1,0 +1,104 @@
+.skills-section {
+    padding: 5rem 0;
+    background: linear-gradient(to right, 
+                  rgba(map-get($colors, darker), 0.9) 0%, 
+                  rgba(map-get($colors, dark), 0.9) 100%);
+}
+
+.skills-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    
+    .category-btn {
+        padding: 0.7rem 1.8rem;
+        background: transparent;
+        border: none;
+        color: map-get($colors, light);
+        border-radius: $border-radius;
+        cursor: pointer;
+        position: relative;
+        font-weight: 600;
+        transition: $transition-fast;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: map-get($colors, primary);
+            transition: $transition-normal;
+        }
+        
+        &:hover, &.active {
+            color: map-get($colors, primary-light);
+            
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-item {
+    background: lighten(map-get($colors, dark), 5%);
+    border-radius: $border-radius;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: $transition-normal;
+    border: 1px solid lighten(map-get($colors, dark), 10%);
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-md;
+        border-color: map-get($colors, primary);
+        
+        .skill-icon {
+            transform: scale(1.1);
+        }
+    }
+    
+    .skill-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        transition: $transition-normal;
+        
+        &.devicon {
+            font-size: 2.2rem;
+        }
+    }
+    
+    .skill-name {
+        font-size: 0.9rem;
+        color: map-get($colors, light);
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .skill-level {
+        width: 100%;
+        height: 4px;
+        background: lighten(map-get($colors, dark), 15%);
+        border-radius: 2px;
+        overflow: hidden;
+        
+        &-fill {
+            height: 100%;
+            background: map-get($colors, primary);
+            border-radius: 2px;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+/* ======================
+   Modern CSS Reset
+   Подходит для темной темы
+   ====================== */
+
+/* Убираем внутренние отступы и границы */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Основные настройки документа */
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Наследование шрифтов для форм */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Базовые настройки body */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  background-color: var(--color-dark); /* Используем CSS-переменные */
+  color: var(--color-light);
+}
+
+/* Упрощенная типография */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+/* Убираем стандартные стили списков */
+ul, ol {
+  list-style: none;
+}
+
+/* Изображения адаптивные */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Убираем дефолтные стили ссылок */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Упрощаем работу с формами */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Убираем анимации для пользователей с настройками reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Сброс таблиц */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Сброс для fieldset */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Сброс для textarea */
+textarea {
+  resize: vertical;
+}
+
+/* Сброс для элементов, которые часто используются в CMS */
+:where([hidden]) {
+  display: none !important;
+}
+
+:where([contenteditable]) {
+  -webkit-user-modify: read-write;
+  user-modify: read-write;
+}
+
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+  user-drag: element;
+}

@@ -1,0 +1,86 @@
+/* Base Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Dark Theme */
+:root {
+  --primary: #6c5ce7;
+  --primary-light: #a29bfe;
+  --dark: #1e272e;
+  --darker: #0f151a;
+  --light: #f5f6fa;
+  --gray: #636e72;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--darker);
+  color: var(--light);
+  line-height: 1.6;
+}
+
+/* Добавьте этот код в ваш main.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Навигация */
+.navbar {
+  background-color: var(--dark);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  color: var(--light);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar .logo span {
+  color: var(--primary);
+}
+
+/* Герой-секция */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-outline {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+/* Карточки проектов */
+.project-card {
+  background: #2d3436;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}

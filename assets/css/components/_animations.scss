@@ -1,0 +1,137 @@
+// Анимации появления при скролле
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    
+    &.animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Пульсация для CTA элементов
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+// Анимация фона
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, map-get($colors, darker) 0%, map-get($colors, dark) 100%);
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 50%, rgba(map-get($colors, primary), 0.1) 0%, transparent 50%);
+        animation: float 15s infinite ease-in-out;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 80% 30%, rgba(map-get($colors, secondary), 0.1) 0%, transparent 50%);
+        animation: float 20s infinite ease-in-out reverse;
+    }
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-5%, -5%); }
+    100% { transform: translate(0, 0); }
+}
+// Плавающие элементы
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.float-element {
+    animation: float 3s ease-in-out infinite;
+}
+
+// Эффект набора текста
+.typewriter {
+    overflow: hidden;
+    border-right: 3px solid map-get($colors, primary);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: map-get($colors, primary); }
+}
+
+// Эффект волны
+.wave {
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+// Эффект загрузки
+.loading-spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    
+    &::after {
+        content: " ";
+        display: block;
+        width: 30px;
+        height: 30px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 3px solid map-get($colors, primary);
+        border-color: map-get($colors, primary) transparent map-get($colors, primary) transparent;
+        animation: loading-spinner 1.2s linear infinite;
+    }
+}
+
+@keyframes loading-spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
